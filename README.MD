@@ -13,10 +13,24 @@
 2. 启动程序：
 
    ```
-   python app.py
+   python server.py
    ```
 
    然后在浏览器中打开 http://localhost:5000/ 即可访问。
+   
+## 如何测试程序
+
+1. 进入Test文件夹
+
+   ```
+   cd Test
+   ```
+
+2. 启动测试程序:
+
+   ```
+   python request.py
+   ```
 
 ## 文件说明
 

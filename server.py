@@ -1,5 +1,6 @@
 import json
 
+import numpy as np
 from flask import Flask, request, jsonify, render_template
 import requests
 import pickle
@@ -9,11 +10,7 @@ import pandas as pd
 app = Flask(__name__)
 filename = './static/GenderLogistic.sav'
 model = pickle.load(open(filename, 'rb'))
-print(model)
-
-
-def classify(model, X_test, y_test):
-    print('Accuracy:', model.score(X_test, y_test))
+# print(model)
 
 
 def labelencoder(df):
@@ -32,55 +29,17 @@ def home():
     return render_template('DataInput.html')
 
 
-# @app.route('/api', methods=['POST'])
-# def api():
-#     # api token TODO
-#     input_x = request.json['input_X']
-#     # 对输入参数 input_x 进行处理，并返回预测结果 pred
-#     pred = process_input(input_x)
-#     response = {'output_Y': pred}
-#     return jsonify(response)
-#     # # 进行模型预测
-#     # output_Y = model.predict(input_X)
-#     # return jsonify({'output_Y': output_Y.tolist()})
-#
-#
-# def process_input(input_x):
-#     # 在这里编写处理输入参数的代码
-#     flag = input_x[0].upper()
-#     if flag == 'X':
-#         return 'X gender'
-#     elif flag > 'M':
-#         return 'male'
-#     else:
-#         return 'female'
-
-
-# @app.route('/predict', methods=['POST'])
-# def predict():
-#     # 获取输入X
-#     input_X = request.form.get('input_X')
-#
-#     # 发送POST请求到API端点，获取预测值Y
-#     response = requests.post('http://localhost:5000/api', json={'input_X': input_X})
-#     output_Y = response.json()['output_Y']
-#     # print("response:")
-#     # print(response)
-#     # print("output_Y")
-#     # print(output_Y)
-#     # 返回预测值Y
-#     return render_template('index.html', input_X=input_X, output_Y=output_Y)
-
 @app.route("/api/predict", methods=["POST"])
 def api_predict():
+    # api token TODO
     data = request.get_json()
     df = pd.DataFrame(data)
-    print(df)
+    # print(df)
     df = labelencoder(df.copy())
     # X_test = df.drop(columns=' Gender', axis=1)
     X_test = df
     y_pred = model.predict(X_test)
-    print(y_pred)
+    # print(y_pred)
     res = y_pred.tolist()
 
     return jsonify({'result': res})
@@ -111,14 +70,32 @@ def pred():
         " Favorite Color": ' ' + color
     }
     df = pd.DataFrame(data, index=[0])
-    # print(df)
-    df = labelencoder(df.copy())
-    # X_test = df.drop(columns=' Gender', axis=1)
-    X_test = df
-    y_pred = model.predict(X_test)
-    print(y_pred[0])
+    print(df)
+    df.to_csv('output.csv', index=False)
 
-    return "Prediction: <insert prediction here>"
+    data2 = pd.read_csv('output.csv')
+    # del data2['Unnamed: 8']
+    # print("input data2:")
+    # print(data2)
+    df = data2
+    url = 'http://127.0.0.1:5000/api/predict'
+    response = requests.post(url, json=df.to_dict(orient='records'))
+    res = response.json()['result']
+    print(res[0])
+    # 将所有0替换为'female'，将所有1替换为'male'
+    gender_map = {0: 'female', 1: 'male'}
+    pretty_res = np.vectorize(gender_map.get)(res)
+
+    return render_template('result.html',
+                           prediction=pretty_res[0],
+                           age=age,
+                           height=height,
+                           weight=weight,
+                           occupation=occupation,
+                           education=education,
+                           marital_status=marital,
+                           income=income,
+                           color=color)
 
 
 # 启动应用程序

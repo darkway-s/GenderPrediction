@@ -1,52 +1,98 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Data Input Form</title>
+	<title>Gender Prediction</title>
 	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+		h1 {
+			color: #333;
+			text-align: center;
+			margin: 40px 0;
+		}
+		form {
+			background-color: #fff;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+			margin: 0 auto;
+			padding: 40px;
+			width: 600px;
+		}
 		label {
-			display: inline-block;
-			width: 120px;
-			text-align: right;
-			margin: 10px;
+			display: block;
+			font-size: 16px;
+			font-weight: bold;
+			margin-bottom: 10px;
 		}
 		input[type="text"] {
-			width: 300px;
-			padding: 5px;
-			margin: 10px;
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin-bottom: 20px;
+			font-size: 16px;
 		}
 		input[type="submit"] {
-			margin: 20px;
-			padding: 10px 20px;
 			background-color: #4CAF50;
-			color: white;
 			border: none;
+			color: white;
+			padding: 12px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
 			border-radius: 4px;
 			cursor: pointer;
+			margin-top: 20px;
+			margin-right: 10px;
+			float: right;
+		}
+		a.button {
+			background-color: #ccc;
+			border: none;
+			color: white;
+			padding: 12px 20px;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 16px;
+			border-radius: 4px;
+			cursor: pointer;
+			margin-top: 20px;
+			margin-left: 10px;
+			float: right;
 		}
 	</style>
 </head>
 <body>
-	<h1>Data Input Form</h1>
+	<h1>Gender Prediction Form</h1>
 	<form method="POST" action="/pred">
-{#		<label for="gender">Gender:</label>#}
-{#		<input type="text" name="gender" required><br>#}
 		<label for="age">Age:</label>
-		<input type="text" name="age" required><br>
+		<input type="text" name="age" required>
 		<label for="height">Height (cm):</label>
-		<input type="text" name="height" required><br>
+		<input type="text" name="height" required>
 		<label for="weight">Weight (kg):</label>
-		<input type="text" name="weight" required><br>
+		<input type="text" name="weight" required>
 		<label for="occupation">Occupation:</label>
-		<input type="text" name="occupation" required><br>
+		<input type="text" name="occupation" required>
 		<label for="education">Education Level:</label>
-		<input type="text" name="education" required><br>
+		<input type="text" name="education" required>
 		<label for="marital">Marital Status:</label>
-		<input type="text" name="marital" required><br>
+		<input type="text" name="marital" required>
 		<label for="income">Income (USD):</label>
-		<input type="text" name="income" required><br>
+		<input type="text" name="income" required>
 		<label for="color">Favorite Color:</label>
-		<input type="text" name="color" required><br>
+		<input type="text" name="color" required>
 		<input type="submit" value="Submit">
+		<a class="button" href="/">Back</a>
 	</form>
+    <footer style="text-align:center">
+		<hr>
+		<p>This project is hosted on <a href="https://github.com/darkway-s/GenderPridiction">Github</a></p>
+	</footer>
 </body>
 </html>

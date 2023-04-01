@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Prediction Result</title>
+    <style>
+      /* Add some style to the page */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1, h2 {
+        text-align: center;
+      }
+      table {
+        border-collapse: collapse;
+        margin: auto;
+        width: 50%;
+      }
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      a {
+        text-decoration: none;
+        font-weight: bold;
+      }
+      .uppercase {
+          text-transform: uppercase;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prediction Result</h1>
+    <h2 class="uppercase">{{ prediction }}</h2>
+    <table>
+      <tr>
+        <th>Attribute</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Age</td>
+        <td>{{ age }}</td>
+      </tr>
+      <tr>
+        <td>Height (cm)</td>
+        <td>{{ height }}</td>
+      </tr>
+      <tr>
+        <td>Weight (kg)</td>
+        <td>{{ weight }}</td>
+      </tr>
+      <tr>
+        <td>Occupation</td>
+        <td>{{ occupation }}</td>
+      </tr>
+      <tr>
+        <td>Education Level</td>
+        <td>{{ education }}</td>
+      </tr>
+      <tr>
+        <td>Marital Status</td>
+        <td>{{ marital_status }}</td>
+      </tr>
+      <tr>
+        <td>Income (USD)</td>
+        <td>{{ income }}</td>
+      </tr>
+      <tr>
+        <td>Favorite Color</td>
+        <td>{{ color }}</td>
+      </tr>
+      <tr>
+        <td>Gender Prediction</td>
+        <td>{{ prediction }}</td>
+      </tr>
+    </table>
+    <br>
+    <p style="text-align: center;"><a href="/">Back</a></p>
+  </body>
+</html>
