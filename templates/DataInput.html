@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Data Input Form</title>
+	<style>
+		label {
+			display: inline-block;
+			width: 120px;
+			text-align: right;
+			margin: 10px;
+		}
+		input[type="text"] {
+			width: 300px;
+			padding: 5px;
+			margin: 10px;
+		}
+		input[type="submit"] {
+			margin: 20px;
+			padding: 10px 20px;
+			background-color: #4CAF50;
+			color: white;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h1>Data Input Form</h1>
+	<form method="POST" action="/pred">
+{#		<label for="gender">Gender:</label>#}
+{#		<input type="text" name="gender" required><br>#}
+		<label for="age">Age:</label>
+		<input type="text" name="age" required><br>
+		<label for="height">Height (cm):</label>
+		<input type="text" name="height" required><br>
+		<label for="weight">Weight (kg):</label>
+		<input type="text" name="weight" required><br>
+		<label for="occupation">Occupation:</label>
+		<input type="text" name="occupation" required><br>
+		<label for="education">Education Level:</label>
+		<input type="text" name="education" required><br>
+		<label for="marital">Marital Status:</label>
+		<input type="text" name="marital" required><br>
+		<label for="income">Income (USD):</label>
+		<input type="text" name="income" required><br>
+		<label for="color">Favorite Color:</label>
+		<input type="text" name="color" required><br>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
