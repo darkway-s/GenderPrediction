@@ -118,11 +118,11 @@ data = {
 
 #### 输入页
 
-![image-20230401163350479](.\README.assets\image-20230401163350479.png)
+![image-20230401163350479](./README.assets/image-20230401163350479.png)
 
 #### 输出页
 
-![image-20230401163425515](.\README.assets\image-20230401163425515.png)
+![image-20230401163425515](./README.assets/image-20230401163425515.png)
 
 ## 参考资料
 
