@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Machine Learning API</title>
+</head>
+<body>
+    <h1>Machine Learning API</h1>
+    <form method="POST" action="/predict">
+        <label for="input_X">Input X:</label>
+        <input type="text" id="input_X" name="input_X"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if input_X and output_Y %}
+        <p>Input X: {{ input_X }}</p>
+        <p>Output Y: {{ output_Y }}</p>
+    {% endif %}
+</body>
+</html>
